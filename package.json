@@ -1,10 +1,14 @@
 {
-  "name": "cs5860-naive_bayes",
+  "name": "rdn-naive-bayes",
   "version": "0.0.1",
   "description": "Implements naive bayes classifier",
   "main": "cli.js",
+  "bin": "cli.js",
   "dependencies": {
-    "minimist": "latest"
+    "minimist": "latest",
+    "async": "latest",
+    "superagent": "latest",
+    "underscore": "latest"
   },
   "preferGlobal": true,
   "repository": {
@@ -12,7 +16,11 @@
     "url": "github.com/ross-nordstrom/cs5860-naive_bayes.git"
   },
   "homepage": "https://github.com/ross-nordstrom/cs5860-naive_bayes",
-  "keywords": ["naive", "bayes", "classifier"],
+  "keywords": [
+    "naive",
+    "bayes",
+    "classifier"
+  ],
   "author": {
     "name": "Ross Nordstrom",
     "email": "rnordstr@uccs.edu",
