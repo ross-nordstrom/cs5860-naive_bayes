@@ -4,9 +4,6 @@ var request = require('superagent');
 var async = require('async');
 var _ = require('underscore');
 
-var GUTEN = "http://www.gutenberg.org";
-
-var numDefault = 10;
 var options = {
     boolean: [
         'help',
@@ -14,7 +11,6 @@ var options = {
     ],
     alias: {
         help: ['h'],
-        num: ['n'],
         ratio: ['r'],
         in: ['i'],
         verbose: ['v']
@@ -22,7 +18,6 @@ var options = {
     default: {
         out: './data',
         in: './data',
-        num: numDefault,
         ratio: 15,
         verbose: false
     }
