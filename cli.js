@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 
-var numDefault = 10;
+var request = require('request');
 
+var numDefault = 10;
 var options = {
   boolean: 'help',
   alias: {
@@ -13,8 +14,8 @@ var options = {
     in: ['i']
   },
   default: {
-    output: './data',
-    input: './data',
+    out: './data',
+    in: './data',
     num: numDefault
   }
 };
@@ -33,10 +34,13 @@ if(argv.help) {
   
   console.log("TODO: Download books off gutenberg, at most "+argv.num+" per url");
   
-  argv.gutenberg.forEach(function(url) {
-    console.log("TODO: This is where we would walk through all pages of the author at: " + url);
-  });
-  process.exit(1);
+  async.map(argv.gutenberg, downloadGutenberg.bind(null, argv.in)/*(url, taskCb)*/, function(err, res) {
+    console.log("ERR? ", err);
+    console.log("RES? ", res);
+    console.log(" ");
+    console.log("TODO: Do something with result?");
+    process.exit(1);
+  }));
   
 } else {
   
@@ -63,4 +67,39 @@ function printHelp() {
   console.log("  --ratio (-r) = <1-100>         - What percentage of dataset to use as Training data");
   
   return;
+}
+
+function downloadGutenberg(dir, url, cb) {
+  console.log("TODO: Walk through all pages of the gutenberg url: "+url);
+  console.log("      and download into directory: "+dir);
+  
+  var offset = 1;
+  var bookUrls = [];
+  var retrievedBooks = 0;
+  
+  async.doWhilst(
+    /*fn: */function(fnCb) {
+      return request.get(url+'?start_index='+offset).end(function(err, res) {
+        if(err) {
+          return fnCb(err);
+        }
+        
+        var theseBooks = [/*TODO*/];
+        
+        bookUrls.push(theseBooks);
+        offset += 25;
+        
+        return fnCb();
+      });
+    },
+    /*test: */function() {
+      return retrievedBooks >= 25;
+    },
+    /*callback: */function(err) {
+      console.log("ERR? ", err);
+      console.log("BOOKS? ", bookUrls);
+      console.log("TODO: Handle book urls");
+      return cb(new Error('not implemented'));
+    }
+  );
 }
