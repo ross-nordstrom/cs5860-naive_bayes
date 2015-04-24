@@ -3,6 +3,7 @@
 var request = require('superagent');
 var async = require('async');
 var _ = require('underscore');
+var fs = require('fs');
 var bayes = require('./lib/naiveBayes');
 
 var options = {
@@ -36,6 +37,60 @@ if (argv.help) {
     process.exit(0);
 
 } else if (argv.inline) {
+
+    var myClassifier = new bayes();
+
+    console.log("Train/Test based on inline data from '" + argv.in + "', using " + argv.ratio + "% for Training");
+
+    return fs.readFile(argv.in, 'utf8', function (err, data) {
+        if (err) {
+            console.log("Error: ", err);
+            process.exit(1);
+        }
+        var rows = _.compact(data.toString().split("\n"));
+        if (argv.verbose) console.log("ROWS: ", _.size(rows));
+
+        // Partition into train vs test dataset
+        var trainAndTest = _.partition(rows, function () {
+            return _.random(1, 100) <= argv.ratio;
+        });
+        var train = trainAndTest[0];
+        var test = trainAndTest[1];
+        if (argv.verbose) console.log("Partitioned into " + _.size(train) + " training and " + _.size(test) + " testing datapoints");
+
+        // Train on all the training points
+        _.each(train, function (row) {
+            var cls = row.split("\t")[0];
+            var textBlob = row.split("\t")[1];
+            myClassifier.train(cls, textBlob);
+        });
+
+        // Test on all the testing points
+        var results = {};
+        _.each(test, function (row) {
+            var cls = row.split("\t")[0];
+            var textBlob = row.split("\t")[1];
+            var choice = myClassifier.classify(textBlob).class;
+
+            results[cls] = results[cls] || {total: 0, correct: 0, false: 0};
+            results[cls].total++;
+
+            // Success?
+            if (choice === cls) {
+                results[cls].correct++;
+            } else {
+                if (argv.verbose) console.log(" X  - Incorrectly classified " + cls + " as " + choice + " (" + textBlob + ")");
+                results[cls].false++;
+            }
+        });
+
+        console.log(" ");
+        console.log("Results: ");
+        console.log(results);
+        process.exit(0);
+    });
+
+} else {
 
     console.log("TODO: Train/Test based on data from '" + argv.in + "', using " + argv.ratio + "% for Training");
     process.exit(1);
