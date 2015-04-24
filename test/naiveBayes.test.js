@@ -21,8 +21,8 @@ describe('Naive Bayes Classifier', function () {
         options: undefined,
         trains: 2,
         classifies: 0,
-        cnt: 12,
-        classes: {color: 7, animal: 5},
+        cnt: 14,
+        classes: {color: 7, animal: 7},
         tokens: {
             red: {_cnt: 1, color: 1},
             orange: {_cnt: 1, color: 1},
@@ -35,7 +35,9 @@ describe('Naive Bayes Classifier', function () {
             cat: {_cnt: 1, animal: 1},
             bird: {_cnt: 1, animal: 1},
             fish: {_cnt: 1, animal: 1},
-            rabbit: {_cnt: 1, animal: 1}
+            rabbit: {_cnt: 1, animal: 1},
+            snake: {_cnt: 1, animal: 1},
+            hamster: {_cnt: 1, animal: 1}
         }
     };
 
@@ -49,7 +51,7 @@ describe('Naive Bayes Classifier', function () {
             var b = new bayes();
 
             b.train('color', 'red orange yellow green blue indigo violet');
-            b.train('animal', 'dog cat bird fish rabbit');
+            b.train('animal', 'dog cat bird fish rabbit snake hamster');
 
             expect(b.dump()).to.eql(colorsAndAnimals);
 
@@ -69,8 +71,8 @@ describe('Naive Bayes Classifier', function () {
             b.restore(colorsAndAnimals);
             expect(b.dump()).to.eql(colorsAndAnimals);
 
-            expect(b.classify('cat dog')).to.eql({class: 'animal', p: 0.01666666666666667});
-            expect(b.classify('red green bird')).to.eql({class: 'color', p: 0.5833333333333334});
+            expect(b.classify('cat dog')).to.eql({class: 'animal', p: 0.01020408163265306});
+            expect(b.classify('red green bird')).to.eql({class: 'color', p: 0.0001457725947521866});
 
             return done();
         });
