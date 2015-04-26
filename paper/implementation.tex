@@ -10,8 +10,28 @@ described below in \ref{subsection:datasets}.
 \subsection{Training the Classifier}
 \label{subsection:training}
 Much of the work for Naive Bayes Classification takes place when training, rather than when classifying. True to this,
-most of the business logic in this project resides in the \texttt{train} method
+most of the business logic in this project resides in the \texttt{train} method, where a custom data structure is used,
+making it easy to keep track of counters for (1) the total number of tokens seen, (2) the number of tokens seen for each
+class, (3) the number of each token seen, and (4) the number of each token seen for each class. Using these counts,
+the math is simple to find our prior and conditional probabilities when classifying.
 
+\subsection{Classifying}
+\label{subsection:classifying}
+Classifying for Naive Bayes is simply a comparison of the Naive Bayes probability that a text blob belongs in each of
+the known classes. The Naive Bayes simplification is that the presence of a token in a class is independent of any
+other tokens found in the text blob. The formula for finding the probability a text blob belongs to a given class is
+shown below. The derivation of this formula is well-known, for example see Leung's slides \cite{naive-bayes-slides}.
+
+\begin{equation}
+P(class)*\prod_{i=1}^{numTokens} P(token_i | class)
+\end{equation}
+
+One complexity with the formula is the matter of how to handle tokens you've never seen for the given
+class (\begin{math}P(token_i | class)\end{math}). Algorithmically, the probability is 0, but this results in a
+probability of 0 for every class when a document has a never-before-seen token. A simplification used in the
+implementation presented here is to apply a \texttt{fudgeFactor} probability to these unknown tokens, such as 0.1.
+This prevents new tokens from destroying our probabilities, without letting them influence a particular class too much
+in the case where it has been seen in other classes.
 
 \subsection{Datasets}
 \label{subsection:datasets}
