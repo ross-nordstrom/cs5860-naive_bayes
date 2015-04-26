@@ -32,6 +32,41 @@ implementation presented here is to apply a \texttt{fudgeFactor} probability to 
 This prevents new tokens from destroying our probabilities, without letting them influence a particular class too much
 in the case where it has been seen in other classes.
 
-\subsection{Datasets}
-\label{subsection:datasets}
-TODO
+\subsection{Tokenizing}
+\label{subsection:tokenizing}
+As with most Machine Learning techniques, the success of a Naive Bayes Classifier on text largely depends on what steps
+are taken to normalize and slim the data before learning on it. In the case of Naive Bayes applied to learning text
+blobs, the normalization and slimming step is determined by how the text blob is tokenized. By default, the classifier
+implemented in this project simply splits the text by spaces, however the classifier can take an arbitrary tokenizer
+function. This allows consumers to do application-specific tokenizing, such as lemmatization, or bi/tri-gramming, and
+top-K word selection. Specific techniques attempted are described in \ref{subsection:advancedResults}.
+
+\subsection{CLI Tool}
+\label{subsection:cliTool}
+
+\begin{table}
+    \begin{tabular}{lll}
+        \hline
+        \textbf{Option} & \textbf{Value} & \textbf{Description} \\ [0.5ex]
+        \hline\hline
+        --help (-h) & [bool] & Print usage \\
+        --verbose (-v) & [bool] & Print debug messages \\
+        --csv & [bool] & Results in CSV format \\
+        --tsv & [bool] & Results in TSV (Tabs) format for pasting into GDrive \\
+        --inline (-I) & [bool] & Indicates --in is a file where each line has structure: "class ...text..." \\
+        --in (-i) & <path/to/dir & Location to read text from \\
+        --ratio (-r) & <1-100> & What percentage of dataset to use as Training data \\
+        --number (-n) & <number> & How many iterations to run at the given options \\
+        --precision (-p) & <decimalPlaces> & How many decimal places to include on performance results \\
+        \hline
+    \end{tabular}
+    \caption{Parameters available in the Naive Bayes Classifier CLI Tool at the time of this paper}
+    \label{table:cliParams}
+\end{table}
+
+To simplify interactions with the Naive Bayes Classifier, a CLI tool was developed for the purpose of easily tweaking
+parameters on the classifier, evaluating arbitrary datasets, and calculating \& formatting performance results.
+
+As with the classifier, the CLI tool was developed in Node.js for rapid prototyping and ease of interfacing with the
+classifier. It parses user-specified parameters in order to evaluate the Naive Bayes Classifier on arbitrary datasets.
+The CLI parameters are described in \ref{table:cliParams}.
