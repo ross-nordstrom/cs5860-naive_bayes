@@ -3,7 +3,7 @@ CS 5860 - Naive Bayes Classifier
 
     Ross Nordstrom
     University of Colorado - Colorado Springs
-    CS 5910 - Computer/Network Security
+    CS 5860 - Machine Learning
 
 ## Assignment
  > Write a program in a language of your choice that classifies datasets into two classes. The two classes
