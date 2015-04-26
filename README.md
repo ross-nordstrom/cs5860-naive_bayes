@@ -9,7 +9,7 @@ CS 5860 - Naive Bayes Classifier
  > Write a program in a language of your choice that classifies datasets into two classes. The two classes
 here are _Charles Dickens_ and _Thomas Hardy._
 
-### [Assignment Details](./ASSIGNMENT.pdf)
+### [Assignment Details](https://github.com/ross-nordstrom/cs5860-naive_bayes/blob/master/ASSIGNMENT.pdf)
 
 ## Dataset
 In addition to the required Dickens and Hardy books, some additional datasets were taken from [UCI - Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.html). The datasets used are described below.
