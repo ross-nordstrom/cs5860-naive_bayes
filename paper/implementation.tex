@@ -3,4 +3,16 @@
 A Naive Bayes classifier was implemented in Node.js \cite{node}, as a simple module with the ability to \texttt{train}
 and \texttt{classify} on text, as well as some debugging interfaces such as \texttt{dump} and \texttt{restore}. This
 core logic is exposed via a convenient CLI tool, which can be run locally from this project or downloaded from the
-public node package manager (NPM) \cite{rdn-naive-bayes}.
+public node package manager (NPM) \cite{rdn-naive-bayes}. This CLI tool simply wraps the core Naive Bayes Classifier
+with some scripting logic to process downloaded datasets of varying formats,
+described below in \ref{subsection:datasets}.
+
+\subsection{Training the Classifier}
+\label{subsection:training}
+Much of the work for Naive Bayes Classification takes place when training, rather than when classifying. True to this,
+most of the business logic in this project resides in the \texttt{train} method
+
+
+\subsection{Datasets}
+\label{subsection:datasets}
+TODO

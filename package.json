@@ -23,9 +23,11 @@
     "pretest": "jshint lib/",
     "test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha -- -R spec -t 60s -s 1s --recursive",
     "posttest": "npm run complexity; npm run document",
+    "document": "jsdoc -P package.json -r -d ./doc/ -R ./README.md ./lib/ 2> /dev/null || true",
     "coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha -- -R spec -t 60s -s 1s --recursive",
     "complexity": "plato -d plato/ -r lib/ ./api.js ./server.js",
-    "autotest": "nodemon --exec 'npm test'"
+    "autotest": "nodemon --exec 'npm test'",
+    "autodoc": "nodemon --watch lib --exec \"npm\" run document"
   },
   "repository": {
     "type": "git",

@@ -18,10 +18,10 @@ var bayes = require('../lib/naiveBayes');
  **/
 describe('Naive Bayes Classifier', function () {
     var colorsAndAnimals = {
-        options: undefined,
         trains: 2,
         classifies: 0,
         cnt: 14,
+        fudgeFactor: 0.1,
         classes: {color: 7, animal: 7},
         tokens: {
             red: {_cnt: 1, color: 1},
