@@ -16,13 +16,13 @@ In addition to the required Dickens and Hardy books, some additional datasets we
 
 **Datasets used, and their location in this project:**
 
-**Dataset** | **Source** | **Path** | * **Type**
+**Dataset** | **Source** | **Path** | **Type** *
 ---|---|---|---
 SMS | [UCI - SMS Spam Collection](https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection) | `./data/sms` | inline
 Badges | [UCI - Badges](https://archive.ics.uci.edu/ml/datasets/Badges) | `./data/badges` | inline
 Main | Gutenberg - [Dickens](http://www.gutenberg.org/ebooks/author/37), [Hardy](http://www.gutenberg.org/ebooks/author/23) | gutenberg
 
-* **Dataset Types:**
+**Dataset Types:** *
 
 **Type** | **Description**
 ---|---
