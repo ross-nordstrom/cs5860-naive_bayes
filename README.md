@@ -18,9 +18,9 @@ In addition to the required Dickens and Hardy books, some additional datasets we
 
 **Dataset** | **Source** | **Path** | **Type** *
 ---|---|---|---
-SMS | [UCI - SMS Spam Collection](https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection) | [./data/sms] | inline
-Badges | [UCI - Badges](https://archive.ics.uci.edu/ml/datasets/Badges) | [./data/badges] | inline
-Main | Gutenberg - [Dickens](http://www.gutenberg.org/ebooks/author/37), [Hardy](http://www.gutenberg.org/ebooks/author/23) | [./data/main] | gutenberg
+SMS | [UCI - SMS Spam Collection](https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection) | [./data/sms](./data/sms) | inline
+Badges | [UCI - Badges](https://archive.ics.uci.edu/ml/datasets/Badges) | [./data/badges](./data/badges) | inline
+Main | Gutenberg - [Dickens](http://www.gutenberg.org/ebooks/author/37), [Hardy](http://www.gutenberg.org/ebooks/author/23) | [./data/main](./data/main) | gutenberg
 
 **Dataset Types:** *
 
