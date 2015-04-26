@@ -14,7 +14,7 @@ here are _Charles Dickens_ and _Thomas Hardy._
 For Hardy, you can find documents at http://www.gutenberg.org/ebooks/author/23. You may be
 able to find data in other sites as well.
 
- * Some additional datasets were used from taken from [UCI - Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.html)
+ * Some additional datasets were taken from [UCI - Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.html)
 
 **Datasets used, and their location in this project:**
 
