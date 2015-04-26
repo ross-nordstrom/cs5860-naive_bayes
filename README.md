@@ -28,3 +28,35 @@ Main | Gutenberg - [Dickens](http://www.gutenberg.org/ebooks/author/37), [Hardy]
 ---|---
 inline | Dataset is stored as a single file in which each line represents a training point. The first word in each line is the class/category, while the rest of the line is a list of words used as the training "text blob."
 gutenberg | Dataset is stored as a list of directories representing classes/categories (e.g. "dickens", "hardy"). Each file within the class directories represent a training point. These files are actually books, but are abstractly considered to be "text blobs," just like the **inline** dataset type.
+
+## Usage
+This project is intended to be used via the CLI, and is exposed as an NPM package.
+
+### Installation
+**From NPM:**
+```sh
+npm install -g rdn-naive-bayes
+```
+
+**From local:**
+```sh
+git clone git@github.com:ross-nordstrom/cs5860-naive_bayes.git
+cd cs5860-naive-bayes
+npm install
+npm link
+```
+
+### Running
+**View Usage:**
+Rather than document the usage here, please see the tool's help documentation. In general, the tool
+expects to be given a dataset which it will divide into Training/Testing data.
+
+```sh
+rdn-naive-bayes -h
+```
+
+### Testing
+```sh
+npm install
+npm test
+```
