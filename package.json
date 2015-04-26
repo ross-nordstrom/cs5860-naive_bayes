@@ -1,6 +1,6 @@
 {
   "name": "rdn-naive-bayes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Implements naive bayes classifier",
   "main": "cli.js",
   "bin": "cli.js",
