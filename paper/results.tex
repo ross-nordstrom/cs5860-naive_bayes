@@ -8,7 +8,7 @@ tokenizing approaches are described.
 In addition to the required Dickens and Hardy books required for the assignment, some additional datasets
 were taken from the UCI Machine Learning Repository \cite{uci}. Specifically, classification datasets stored in an
 easy-to-use text format were selected. The datasets used are described in \ref{table:datasets}. For each dataset, I
-specify which "type" it is, indicating the structure in which the data is stored. The dataset types are described in
+specify which ``type" it is, indicating the structure in which the data is stored. The dataset types are described in
 \ref{table:datasetTypes}.
 
 
@@ -19,7 +19,7 @@ specify which "type" it is, indicating the structure in which the data is stored
         \hline\hline
         SMS & UCI - SMS Spam Collection & inline \\
         Badges & UCI - Badges & inline \\
-        Main & Gutenberg - Dickens \& Hardy & gutenberg \\
+        Main & Gutenberg - Dickens \& Hardy & guten \\
         \hline
     \end{tabular}
     \caption{Datasets used for this paper}
@@ -31,8 +31,18 @@ specify which "type" it is, indicating the structure in which the data is stored
         \hline
         \textbf{Type} & \textbf{Description} \\ [0.5ex]
         \hline\hline
-        inline & Dataset is stored as a single file in which each line represents a training point. The first word in each line is the class/category, while the rest of the line is a list of words used as the training "text blob." \\
-        gutenberg & Dataset is stored as a list of directories representing classes/categories (e.g. "dickens", "hardy"). Each file within the class directories represent a training point. These files are actually books, but are abstractly considered to be "text blobs," just like the **inline** dataset type. \\
+        inline & Dataset is stored as a single file in which each line \\
+               & represents a training point. The first word in each \\
+               & line is the class/category, while the rest of the \\
+               & line is a list of words used as the training \\
+               & ``text blob." \\
+        guten  & Dataset is stored as a list of directories representing \\
+               & classes/categories (e.g. ``dickens", ``hardy"). Each file \\
+               & within the class directories \\
+               & represent a training point. These files \\
+               & are actually books, but are abstractly \\
+               & considered to be ``text blobs," \\
+               & just like the **inline** dataset type. \\
         \hline
     \end{tabular}
     \caption{Types of datasets used}
