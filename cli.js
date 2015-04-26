@@ -5,17 +5,20 @@ var async = require('async');
 var _ = require('underscore');
 var fs = require('fs');
 var bayes = require('./lib/naiveBayes');
+var cliHelper = require('./lib/cliHelper');
 
 var options = {
     boolean: [
         'help',
         'verbose',
+        'csv',
         'inline'
     ],
     alias: {
         help: ['h'],
         ratio: ['r'],
         in: ['i'],
+        number: ['n'],
         verbose: ['v'],
         inline: ['I']
     },
@@ -23,7 +26,9 @@ var options = {
         out: './data',
         in: './data',
         ratio: 15,
-        verbose: false
+        number: 1,
+        verbose: false,
+        csv: false
     }
 };
 
@@ -33,82 +38,82 @@ var argv = require('minimist')(process.argv.slice(2), options);
 
 if (argv.help) {
 
-    printHelp();
+    cliHelper.printHelp(argv);
     process.exit(0);
 
 } else if (argv.inline) {
 
     var myClassifier = new bayes();
 
-    console.log("Train/Test based on inline data from '" + argv.in + "', using " + argv.ratio + "% for Training");
+    console.log("Train/Test on inline data from '" + argv.in + "', " + argv.number + " time(s), using " + argv.ratio + "% for Training");
 
-    return fs.readFile(argv.in, 'utf8', function (err, data) {
+    return async.times(argv.number, function (idx, timesCb) {
+        return fs.readFile(argv.in, 'utf8', function (err, data) {
+            if (err) {
+                return timesCb(err);
+            }
+            var rows = _.compact(data.toString().split("\n"));
+            if (argv.verbose) console.log("ROWS: ", _.size(rows));
+
+            // Partition into train vs test dataset
+            var trainAndTest = _.partition(rows, function () {
+                return _.random(1, 100) <= argv.ratio;
+            });
+            var train = trainAndTest[0];
+            var test = trainAndTest[1];
+            if (argv.verbose) console.log("Partitioned into " + _.size(train) + " training and " + _.size(test) + " testing datapoints");
+
+            // Train on all the training points
+            _.each(train, function (row) {
+                var cls = row.split("\t")[0];
+                var textBlob = row.split("\t")[1];
+                myClassifier.train(cls, textBlob);
+            });
+
+            // Test on all the testing points
+            var results = {_all: {total: 0, correct: 0, false: 0}};
+            _.each(test, function (row) {
+                var cls = row.split("\t")[0];
+                var textBlob = row.split("\t")[1];
+                var choice = myClassifier.classify(textBlob).class;
+
+                results[cls] = results[cls] || {total: 0, correct: 0, false: 0};
+                results[cls].total++;
+                results._all.total++;
+
+                // Success?
+                if (choice === cls) {
+                    results[cls].correct++;
+                    results._all.correct++;
+                } else {
+                    if (argv.verbose) console.log(" X  - Incorrectly classified " + cls + " as " + choice + " (" + textBlob + ")");
+                    results[cls].false++;
+                    results._all.false++;
+                }
+            });
+
+            return timesCb(null, results);
+        });
+    }, function (err, allResults) {
         if (err) {
-            console.log("Error: ", err);
+            console.log("ERROR: ", err);
             process.exit(1);
         }
-        var rows = _.compact(data.toString().split("\n"));
-        if (argv.verbose) console.log("ROWS: ", _.size(rows));
-
-        // Partition into train vs test dataset
-        var trainAndTest = _.partition(rows, function () {
-            return _.random(1, 100) <= argv.ratio;
-        });
-        var train = trainAndTest[0];
-        var test = trainAndTest[1];
-        if (argv.verbose) console.log("Partitioned into " + _.size(train) + " training and " + _.size(test) + " testing datapoints");
-
-        // Train on all the training points
-        _.each(train, function (row) {
-            var cls = row.split("\t")[0];
-            var textBlob = row.split("\t")[1];
-            myClassifier.train(cls, textBlob);
-        });
-
-        // Test on all the testing points
-        var results = {};
-        _.each(test, function (row) {
-            var cls = row.split("\t")[0];
-            var textBlob = row.split("\t")[1];
-            var choice = myClassifier.classify(textBlob).class;
-
-            results[cls] = results[cls] || {total: 0, correct: 0, false: 0};
-            results[cls].total++;
-
-            // Success?
-            if (choice === cls) {
-                results[cls].correct++;
-            } else {
-                if (argv.verbose) console.log(" X  - Incorrectly classified " + cls + " as " + choice + " (" + textBlob + ")");
-                results[cls].false++;
-            }
-        });
 
         console.log(" ");
         console.log("Results: ");
-        console.log(results);
+        console.log(cliHelper.normalizeResults(argv, allResults));
         process.exit(0);
     });
 
-} else {
+} else if (argv.gutenberg) {
 
     console.log("TODO: Train/Test based on data from '" + argv.in + "', using " + argv.ratio + "% for Training");
     process.exit(1);
 
-}
+} else {
 
-function printHelp() {
+    cliHelper.printHelp(argv);
+    process.exit(1);
 
-    console.log("Usage: " + process.argv.slice(0, 2));
-    console.log("  --help (-h)                        - Print usage");
-    console.log("  --verbose (-v)                     - Print debug messages");
-    console.log(" ");
-    console.log("  Randomly Train/Test from downloaded data:");
-    console.log("  --in (-i) = <path/to/dir>          - Location to read text from");
-    console.log("  --ratio (-r) = <1-100>             - What percentage of dataset to use as Training data");
-    console.log("  --inline (-I)                      - Indicates --in is a file where each line has structure:");
-    console.log("                                           \"class ...text...\"");
-    console.log(" ");
-    console.log(" ");
-    console.log("Your args: ", argv);
 }
