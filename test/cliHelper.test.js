@@ -22,20 +22,25 @@ describe('CliHelper', function () {
         var FUT = CliHelper.normalizeResults;
         var exampleResults = [
             {
-                _all: {total: 5525, correct: 2176, false: 3349},
-                ham: {total: 4785, correct: 1441, false: 3344},
-                spam: {total: 740, correct: 735, false: 5}
+                _all: {total: 5529, TP: 3609, FN: 0, FP: 1920, TN: 0},
+                ham: {total: 4790, TP: 2901, FN: 0, FP: 1889, TN: 0},
+                spam: {total: 739, TP: 708, FN: 0, FP: 31, TN: 0}
             },
             {
-                _all: {total: 5529, correct: 3334, false: 2195},
-                ham: {total: 4786, correct: 2601, false: 2185},
-                spam: {total: 743, correct: 733, false: 10}
+                _all: {total: 5517, TP: 3324, FN: 0, FP: 2193, TN: 0},
+                ham: {total: 4772, TP: 2595, FN: 0, FP: 2177, TN: 0},
+                spam: {total: 745, TP: 729, FN: 0, FP: 16, TN: 0}
             },
             {
-                _all: {total: 5515, correct: 3126, false: 2389},
-                ham: {total: 4774, correct: 2397, false: 2377},
-                spam: {total: 741, correct: 729, false: 12}
+                _all: {total: 5533, TP: 3325, FN: 0, FP: 2208, TN: 0},
+                ham: {total: 4790, TP: 2590, FN: 0, FP: 2200, TN: 0},
+                spam: {total: 743, TP: 735, FN: 0, FP: 8, TN: 0}
             }
+        ];
+        var expectedKeys = [
+            "_all_precision", "_all_recall", "_all_specificity", "_all_accuracy",
+            "ham_precision", "ham_recall", "ham_specificity", "ham_accuracy",
+            "spam_precision", "spam_recall", "spam_specificity", "spam_accuracy"
         ];
 
         it('should be a function', function (done) {
@@ -44,25 +49,15 @@ describe('CliHelper', function () {
         });
         it('should work on a basic example', function (done) {
             var x = FUT({}, exampleResults);
-            var keys = [
-                '_all_total', '_all_correct', '_all_false',
-                'ham_total', 'ham_correct', 'ham_false',
-                'spam_total', 'spam_correct', 'spam_false'
-            ];
             expect(x).to.be.an('object');
-            expect(x).to.have.keys(keys);
-            keys.forEach(function (k) {
+            expect(x).to.have.keys(expectedKeys);
+            expectedKeys.forEach(function (k) {
                 expect(x[k]).to.be.an(Array);
             });
             return done();
         });
         it('should work on a basic example with csv output', function (done) {
             var csv = FUT({csv: true}, exampleResults);
-            var keys = [
-                '_all_total', '_all_correct', '_all_false',
-                'ham_total', 'ham_correct', 'ham_false',
-                'spam_total', 'spam_correct', 'spam_false'
-            ];
 
             expect(csv).to.be.a('string');
             var x = _.map(csv.split("\n"), function (row) {
@@ -71,7 +66,7 @@ describe('CliHelper', function () {
 
             expect(x).to.be.an(Array);
             expect(x).to.have.length(1 + _.size(exampleResults));
-            keys.forEach(function (k) {
+            expectedKeys.forEach(function (k) {
                 expect(x[0]).to.contain(k);
             });
             return done();

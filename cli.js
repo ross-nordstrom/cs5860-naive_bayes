@@ -19,6 +19,7 @@ var options = {
         ratio: ['r'],
         in: ['i'],
         number: ['n'],
+        precision: ['p'],
         verbose: ['v'],
         inline: ['I']
     },
@@ -27,6 +28,7 @@ var options = {
         in: './data',
         ratio: 15,
         number: 1,
+        precision: 2,
         verbose: false,
         csv: false
     }
@@ -71,25 +73,19 @@ if (argv.help) {
             });
 
             // Test on all the testing points
-            var results = {_all: {total: 0, correct: 0, false: 0}};
+            var results = {_all: {total: 0, TP: 0, FN: 0, FP: 0, TN: 0}};
             _.each(test, function (row) {
                 var cls = row.split("\t")[0];
                 var textBlob = row.split("\t")[1];
                 var choice = myClassifier.classify(textBlob).class;
 
-                results[cls] = results[cls] || {total: 0, correct: 0, false: 0};
+                results[cls] = results[cls] || {total: 0, TP: 0, FN: 0, FP: 0, TN: 0};
                 results[cls].total++;
                 results._all.total++;
 
-                // Success?
-                if (choice === cls) {
-                    results[cls].correct++;
-                    results._all.correct++;
-                } else {
-                    if (argv.verbose) console.log(" X  - Incorrectly classified " + cls + " as " + choice + " (" + textBlob + ")");
-                    results[cls].false++;
-                    results._all.false++;
-                }
+                var qual = [(choice === cls) ? 'T' : 'F', choice ? 'P' : 'N'].join('');
+                results[cls][qual]++;
+                results._all[qual]++;
             });
 
             return timesCb(null, results);
@@ -101,7 +97,11 @@ if (argv.help) {
         }
 
         console.log(" ");
-        console.log("Results: ");
+        console.log("Raw Results: ");
+        console.log(allResults);
+
+        console.log(" ");
+        console.log("Performance Results: ");
         console.log(cliHelper.normalizeResults(argv, allResults));
         process.exit(0);
     });
