@@ -71,6 +71,21 @@ describe('CliHelper', function () {
             });
             return done();
         });
+        it('should work on a basic example with tsv (tab-separated) output', function (done) {
+            var csv = FUT({tsv: true}, exampleResults);
+
+            expect(csv).to.be.a('string');
+            var x = _.map(csv.split("\n"), function (row) {
+                return row.split("\t");
+            });
+
+            expect(x).to.be.an(Array);
+            expect(x).to.have.length(1 + _.size(exampleResults));
+            expectedKeys.forEach(function (k) {
+                expect(x[0]).to.contain(k);
+            });
+            return done();
+        });
     }); // describe('normalizeResults')
 
 }); // describe('CliHelper')

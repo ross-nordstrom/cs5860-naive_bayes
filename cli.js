@@ -12,6 +12,7 @@ var options = {
         'help',
         'verbose',
         'csv',
+        'tsv',
         'inline'
     ],
     alias: {
@@ -30,7 +31,8 @@ var options = {
         number: 1,
         precision: 2,
         verbose: false,
-        csv: false
+        csv: false,
+        tsv: false
     }
 };
 
