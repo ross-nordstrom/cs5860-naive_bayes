@@ -13,7 +13,8 @@ var options = {
         'verbose',
         'csv',
         'tsv',
-        'inline'
+        'inline',
+        'guten'
     ],
     alias: {
         help: ['h'],
@@ -22,7 +23,8 @@ var options = {
         number: ['n'],
         precision: ['p'],
         verbose: ['v'],
-        inline: ['I']
+        inline: ['I'],
+        guten: ['G']
     },
     default: {
         out: './data',
@@ -114,9 +116,22 @@ if (argv.help) {
         process.exit(0);
     });
 
-} else if (argv.gutenberg) {
+} else if (argv.guten) {
 
     console.log("TODO: Train/Test based on data from '" + argv.in + "', using " + argv.ratio + "% for Training");
+
+    // Grab each author-directory in the main directory
+    var authors = fs.readdirSync(argv.in);
+    if (argv.verbose) console.log("Author directories: ", authors);
+
+    // { dickens: [ 'a_christmas_carol.txt', ... ], hardy: [...] }
+    var booksByAuthor = _.object(authors, _.map(authors, function (auth) {
+        return fs.readdirSync([argv.in, auth].join('/'));
+    }));
+    if (argv.verbose) console.log("Books: ", booksByAuthor);
+
+    
+
     process.exit(1);
 
 } else {
