@@ -147,18 +147,37 @@ are shown for varying ratios. A more limited range of ratios was used because th
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=90mm]{img/novels_basic-precision.png}
-    \caption{Novels Precision: Overall, Dickens-specific, and Hardy-specific precisions found at varying portions of the dataset used to train}
+    \caption{Novels Basic Precision: Overall, Dickens-specific, and Hardy-specific precisions found at varying portions of the dataset used to train}
     \label{fig:spamBasicPrecision}
 \end{figure}
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=90mm]{img/novels_basic-accuracy.png}
-    \caption{Novels Accuracy: Overall, Dickens-specific, and Hardy-specific accuracies found at varying portions of the dataset used to train}
+    \caption{Novels Basic Accuracy: Overall, Dickens-specific, and Hardy-specific accuracies found at varying portions of the dataset used to train}
     \label{fig:smsBasicAccuracy}
 \end{figure}
 
 
 \subsection{Extending the Classifier}
 \label{subsection:advancedResults}
-TODO
+After the poor results from the basic classifier on the Dickens verse Hardy novels, several attempts were taken to
+improve the accuracy and precision of the classifier on these large bodies of text.
+
+First, a stemming step was added to the tokenizing process, in hopes of slimming the dataset and removing noise;
+however, this had little impact on the effectiveness of either the precision \ref{fig:novelsStemPrecision} or accuracy
+\ref{fig:novelsStemAccuracy}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=90mm]{img/novels_stem-precision.png}
+    \caption{Novels Stem Precision: Overall, Dickens-specific, and Hardy-specific precisions found at varying portions of the dataset used to train}
+    \label{fig:spamBasicPrecision}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=90mm]{img/novels_stem-accuracy.png}
+    \caption{Novels Stem Accuracy: Overall, Dickens-specific, and Hardy-specific accuracies found at varying portions of the dataset used to train}
+    \label{fig:smsBasicAccuracy}
+\end{figure}

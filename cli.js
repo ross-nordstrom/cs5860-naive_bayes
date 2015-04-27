@@ -15,7 +15,9 @@ var options = {
         'csv',
         'tsv',
         'inline',
-        'guten'
+        'guten',
+        'stem',
+        'sentence'
     ],
     alias: {
         help: ['h'],
@@ -25,7 +27,10 @@ var options = {
         precision: ['p'],
         verbose: ['v'],
         inline: ['I'],
-        guten: ['G']
+        guten: ['G'],
+        topK: ['k'],
+        stem: ['s'],
+        sentence: ['S']
     },
     default: {
         out: './data',
@@ -123,13 +128,15 @@ if (argv.help) {
     // Should we tokenize in a fancy way?
     // Operates from last to first
     var tokenizer = _.compose(
-        !argv.count ? _.identity : cliHelper.topK,
-        (new natural.WordTokenizer())[!argv.stem ? 'tokenize' : 'tokenizeAndStem']()
+        !argv.topK ? _.identity : cliHelper.topK.bind(null, argv.topK)/*(tokens)*/,
+        //cliHelper.tokenNormalize,
+        argv.stem ? natural.PorterStemmer.tokenizeAndStem/*(str)*/ :
+            argv.sentence ? cliHelper.sentenceTokenizer : cliHelper.basicTokenizer
     );
 
     return async.times(argv.number, function (idx, timesCb) {
 
-        var myClassifier = new bayes();
+        var myClassifier = new bayes({tokenizer: tokenizer});
 
         // Partition into train vs test dataset
         var seeds = _.shuffle(_.range(_.size(books)));
@@ -226,12 +233,10 @@ function handleEvalDone(err, allResults) {
         process.exit(1);
     }
 
-    console.log(" ");
-    console.log("Raw Results: ");
-    console.log(allResults);
+    if (argv.verbose) console.log("\nRaw Results: ");
+    if (argv.verbose) console.log(allResults);
 
-    console.log(" ");
-    console.log("Performance Results: ");
+    console.log("\nPerformance Results: ");
     console.log(cliHelper.normalizeResults(argv, allResults));
 
     var end = new Date();

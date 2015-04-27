@@ -101,7 +101,7 @@ describe('CliHelper', function () {
                 'one', 'fish', 'two', 'fish',
                 'red', 'fish', 'blue', 'fish',
                 'one', 'blue', 'one'
-            ])).to.eql(['fish', 'one', 'blue']);
+            ])).to.eql(['fish', 'fish', 'fish', 'fish', 'one', 'one', 'one', 'blue', 'blue']);
             return done();
         });
     }); // describe('topK')
