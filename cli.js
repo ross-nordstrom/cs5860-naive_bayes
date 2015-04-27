@@ -6,6 +6,7 @@ var _ = require('underscore');
 var fs = require('fs');
 var bayes = require('./lib/naiveBayes');
 var cliHelper = require('./lib/cliHelper');
+var natural = require('natural');
 
 var options = {
     boolean: [
@@ -118,6 +119,13 @@ if (argv.help) {
         });
     }));
     if (argv.verbose) console.log("Books: ", books);
+
+    // Should we tokenize in a fancy way?
+    // Operates from last to first
+    var tokenizer = _.compose(
+        !argv.count ? _.identity : cliHelper.topK,
+        (new natural.WordTokenizer())[!argv.stem ? 'tokenize' : 'tokenizeAndStem']()
+    );
 
     return async.times(argv.number, function (idx, timesCb) {
 

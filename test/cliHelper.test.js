@@ -89,4 +89,20 @@ describe('CliHelper', function () {
         });
     }); // describe('normalizeResults')
 
+    describe('topK', function () {
+        var FUT = CliHelper.topK;
+
+        it('should be a function', function (done) {
+            expect(FUT).to.be.a('function');
+            return done();
+        });
+        it('should work on a basic example', function (done) {
+            expect(FUT(3, [
+                'one', 'fish', 'two', 'fish',
+                'red', 'fish', 'blue', 'fish',
+                'one', 'blue', 'one'
+            ])).to.eql(['fish', 'one', 'blue']);
+            return done();
+        });
+    }); // describe('topK')
 }); // describe('CliHelper')
