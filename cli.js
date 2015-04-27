@@ -77,7 +77,7 @@ if (argv.help) {
             });
             var train = trainAndTest[0];
             var test = trainAndTest[1];
-            console.log("Partitioned into " + _.size(train) + " training and " + _.size(test) + " testing datapoints");
+            console.log((idx + 1) + ")Partitioned into " + _.size(train) + " training and " + _.size(test) + " testing datapoints");
 
             // Train on all the training points
             _.each(train, function (row) {
@@ -188,7 +188,7 @@ if (argv.help) {
             missingClasses = _.difference(classes, _.uniq(_.pluck(train, 'class')));
         }
 
-        console.log(idx + ") Partitioned into " + _.size(train) + " training and " + _.size(test) + " testing datapoints");
+        console.log((idx + 1) + ") Partitioned into " + _.size(train) + " training and " + _.size(test) + " testing datapoints");
 
         // Train on all the training points
         _.each(train, function (bookInfo) {
