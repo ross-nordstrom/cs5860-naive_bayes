@@ -1,295 +1,294 @@
-u
-+ Naoki Abe
-- Myriam Abramson
-+ David W. Aha
-+ Kamal M. Ali
-- Eric Allender
-+ Dana Angluin
-- Chidanand Apte
-+ Minoru Asada
-+ Lars Asker
-+ Javed Aslam
-+ Haralabos Athanassiou
-+ Jose L. Balcazar
-+ Timothy P. Barber
-+ Michael W. Barley
-- Cristina Baroglio
-+ Peter Bartlett
-- Eric Baum
-+ Welton Becket
-- Shai Ben-David
-+ George Berg
-+ Neil Berkman
-+ Malini Bhandaru
-+ Bir Bhanu
-+ Reinhard Blasig
-- Avrim Blum
-- Anselm Blumer
-+ Justin Boyan
-+ Carla E. Brodley
-+ Nader Bshouty
-- Wray Buntine
-- Andrey Burago
-+ Tom Bylander
-+ Bill Byrne
-- Claire Cardie
-+ Richard A. Caruana
-+ John Case
-+ Jason Catlett
-+ Nicolo Cesa-Bianchi
-- Philip Chan
-+ Mark Changizi
-+ Pang-Chieh Chen
-- Zhixiang Chen
-+ Wan P. Chiang
-- Steve A. Chien
-+ Jeffery Clouse
-+ William Cohen
-+ David Cohn
-- Clare Bates Congdon
-- Antoine Cornuejols
-+ Mark W. Craven
-+ Robert P. Daley
-+ Lindley Darden
-- Chris Darken
-- Bhaskar Dasgupta
-- Brian D. Davidson
-+ Michael de la Maza
-- Olivier De Vel
-- Scott E. Decatur
-+ Gerald F. DeJong
-+ Kan Deng
-- Thomas G. Dietterich
-+ Michael J. Donahue
-+ George A. Drastal
-+ Harris Drucker
-- Chris Drummond
-+ Hal Duncan
-- Thomas Ellman
-+ Tapio Elomaa
-+ Susan L. Epstein
-+ Bob Evans
-- Claudio Facchinetti
-+ Tom Fawcett
-- Usama Fayyad
-+ Aaron Feigelson
-+ Nicolas Fiechter
-+ David Finton
-+ John Fischer
-+ Paul Fischer
-+ Seth Flanders
-+ Lance Fortnow
-- Ameur Foued
-+ Judy A. Franklin
-+ Yoav Freund
-+ Johannes Furnkranz
-+ Merrick L. Furst
-+ Jean Gabriel Ganascia
-+ William Gasarch
-+ Ricard Gavalda
-+ Melinda T. Gervasio
-+ Yolanda Gil
-+ David Gillman
-- Attilio Giordana
-+ Kate Goelz
-+ Paul W. Goldberg
-+ Sally Goldman
-+ Diana Gordon
-+ Geoffrey Gordon
-+ Jonathan Gratch
-+ Leslie Grate
-+ William A. Greene
-+ Russell Greiner
-+ Marko Grobelnik
-+ Tal Grossman
-+ Margo Guertin
-+ Tom Hancock
-+ Earl S. Harris Jr.
-+ David Haussler
-+ Matthias Heger
-+ Lisa Hellerstein
-+ David Helmbold
-+ Daniel Hennessy
-+ Haym Hirsh
-+ Jonathan Hodgson
-+ Robert C. Holte
-+ Jiarong Hong
-- Chun-Nan Hsu
-+ Kazushi Ikeda
-+ Masayuki Inaba
-- Drago Indjic
-+ Nitin Indurkhya
-+ Jeff Jackson
-+ Sanjay Jain
-+ Wolfgang Janko
-- Klaus P. Jantke
-+ Nathalie Japkowicz
-+ George H. John
-+ Randolph Jones
-+ Michael I. Jordan
-+ Leslie Pack Kaelbling
-+ Bala Kalyanasundaram
-- Thomas E. Kammeyer
-- Grigoris Karakoulas
-+ Michael Kearns
-+ Neela Khan
-+ Roni Khardon
-+ Dennis F. Kibler
-+ Jorg-Uwe Kietz
-- Efim Kinber
-- Jyrki Kivinen
-- Emanuel Knill
-- Craig Knoblock
-+ Ron Kohavi
-+ Pascal Koiran
-+ Moshe Koppel
-+ Daniel Kortenkamp
-+ Matevz Kovacic
-- Stefan Kramer
-+ Martinch Krikis
-+ Martin Kummer
-- Eyal Kushilevitz
-- Stephen Kwek
-+ Wai Lam
-+ Ken Lang
-- Steffen Lange
-+ Pat Langley
-+ Mary Soon Lee
-+ Wee Sun Lee
-+ Moshe Leshno
-+ Long-Ji Lin
-- Charles X. Ling
-+ Michael Littman
-+ David Loewenstern
-- Phil Long
-+ Wolfgang Maass
-- Bruce A. MacDonald
-+ Rich Maclin
-- Sridhar Mahadevan
-- J. Jeffrey Mahoney
-+ Yishay Mansour
-+ Mario Marchand
-- Shaul Markovitch
-- Oded Maron
-+ Maja Mataric
-+ David Mathias
-+ Toshiyasu Matsushima
-- Stan Matwin
-- Eddy Mayoraz
-- R. Andrew McCallum
-- L. Thorne McCarty
-- Alexander M. Meystel
-+ Michael A. meystel
-- Steven Minton
-+ Nina Mishra
-+ Tom M. Mitchell
-+ Dunja Mladenic
-+ David Montgomery
-- Andrew W. Moore
-+ Johanne Morin
-+ Hiroshi Motoda
-- Stephen Muggleton
-+ Patrick M. Murphy
-- Sreerama K. Murthy
-+ Filippo Neri
-- Craig Nevill-Manning
-- Andrew Y. Ng
-+ Nikolay Nikolaev
-- Steven W. Norton
-+ Joseph O'Sullivan
-+ Dan Oblinger
-+ Jong-Hoon Oh
-- Arlindo Oliveira
-+ David W. Opitz
-+ Sandra Panizza
-+ Barak A. Pearlmutter
-- Ed Pednault
-+ Jing Peng
-+ Fernando Pereira
-+ Aurora Perez
-+ Bernhard Pfahringer
-+ David Pierce
-- Krishnan Pillaipakkamnatt
-+ Roberto Piola
-+ Leonard Pitt
-+ Lorien Y. Pratt
-- Armand Prieditis
-+ Foster J. Provost
-- J. R. Quinlan
-+ John Rachlin
-+ Vijay Raghavan
-- R. Bharat Rao
-- Priscilla Rasmussen
-+ Joel Ratsaby
-+ Michael Redmond
-+ Patricia J. Riddle
-+ Lance Riley
-+ Ronald L. Rivest
-+ Huw Roberts
-+ Dana Ron
-+ Robert S. Roos
-+ Justinian Rosca
-+ John R. Rose
-+ Dan Roth
-+ James S. Royer
-+ Ronitt Rubinfeld
-- Stuart Russell
-+ Lorenza Saitta
-+ Yoshifumi Sakai
-+ William Sakas
-+ Marcos Salganicoff
-- Steven Salzberg
-- Claude Sammut
-+ Cullen Schaffer
-+ Robert Schapire
-+ Mark Schwabacher
-+ Michele Sebag
-+ Gary M. Selzer
-+ Sebastian Seung
-- Arun Sharma
-+ Jude Shavlik
-+ Daniel L. Silver
-- Glenn Silverstein
-+ Yoram Singer
-+ Mona Singh
-+ Satinder Pal Singh
-+ Kimmen Sjolander
-+ David B. Skalak
-+ Sean Slattery
-+ Robert Sloan
-+ Donna Slonim
-+ Carl H. Smith
-+ Sonya Snedecor
-+ Von-Wun Soo
-- Thomas G. Spalthoff
-+ Mark Staley
-- Frank Stephan
-+ Mandayam T. Suraj
-+ Richard S. Sutton
-+ Joe Suzuki
-- Prasad Tadepalli
-+ Hiroshi Tanaka
-- Irina Tchoumatchenko
-- Brian Tester
-- Chen K. Tham
-+ Tatsuo Unemi
-- Lyle H. Ungar
-+ Paul Utgoff
-+ Karsten Verbeurgt
-+ Paul Vitanyi
-+ Xuemei Wang
-+ Manfred Warmuth
-+ Gary Weiss
-- Sholom Weiss
-- Thomas Wengerek
-- Bradley L. Whitehall
-- Alma Whitten
-+ Robert Williamson
-+ Janusz Wnek
-+ Kenji Yamanishi
-+ Takefumi Yamazaki
-+ Holly Yanco
-+ John M. Zelle
-- Thomas Zeugmann
-+ Jean-Daniel Zucker
-+ Darko Zupanic
+P	Naoki Abe
+N	Myriam Abramson
+P	David W. Aha
+P	Kamal M. Ali
+N	Eric Allender
+P	Dana Angluin
+N	Chidanand Apte
+P	Minoru Asada
+P	Lars Asker
+P	Javed Aslam
+P	Haralabos Athanassiou
+P	Jose L. Balcazar
+P	Timothy P. Barber
+P	Michael W. Barley
+N	Cristina Baroglio
+P	Peter Bartlett
+N	Eric Baum
+P	Welton Becket
+N	Shai Ben-David
+P	George Berg
+P	Neil Berkman
+P	Malini Bhandaru
+P	Bir Bhanu
+P	Reinhard Blasig
+N	Avrim Blum
+N	Anselm Blumer
+P	Justin Boyan
+P	Carla E. Brodley
+P	Nader Bshouty
+N	Wray Buntine
+N	Andrey Burago
+P	Tom Bylander
+P	Bill Byrne
+N	Claire Cardie
+P	Richard A. Caruana
+P	John Case
+P	Jason Catlett
+P	Nicolo Cesa-Bianchi
+N	Philip Chan
+P	Mark Changizi
+P	Pang-Chieh Chen
+N	Zhixiang Chen
+P	Wan P. Chiang
+N	Steve A. Chien
+P	Jeffery Clouse
+P	William Cohen
+P	David Cohn
+N	Clare Bates Congdon
+N	Antoine Cornuejols
+P	Mark W. Craven
+P	Robert P. Daley
+P	Lindley Darden
+N	Chris Darken
+N	Bhaskar Dasgupta
+N	Brian D. Davidson
+P	Michael de la Maza
+N	Olivier De Vel
+N	Scott E. Decatur
+P	Gerald F. DeJong
+P	Kan Deng
+N	Thomas G. Dietterich
+P	Michael J. Donahue
+P	George A. Drastal
+P	Harris Drucker
+N	Chris Drummond
+P	Hal Duncan
+N	Thomas Ellman
+P	Tapio Elomaa
+P	Susan L. Epstein
+P	Bob Evans
+N	Claudio Facchinetti
+P	Tom Fawcett
+N	Usama Fayyad
+P	Aaron Feigelson
+P	Nicolas Fiechter
+P	David Finton
+P	John Fischer
+P	Paul Fischer
+P	Seth Flanders
+P	Lance Fortnow
+N	Ameur Foued
+P	Judy A. Franklin
+P	Yoav Freund
+P	Johannes Furnkranz
+P	Merrick L. Furst
+P	Jean Gabriel Ganascia
+P	William Gasarch
+P	Ricard Gavalda
+P	Melinda T. Gervasio
+P	Yolanda Gil
+P	David Gillman
+N	Attilio Giordana
+P	Kate Goelz
+P	Paul W. Goldberg
+P	Sally Goldman
+P	Diana Gordon
+P	Geoffrey Gordon
+P	Jonathan Gratch
+P	Leslie Grate
+P	William A. Greene
+P	Russell Greiner
+P	Marko Grobelnik
+P	Tal Grossman
+P	Margo Guertin
+P	Tom Hancock
+P	Earl S. Harris Jr.
+P	David Haussler
+P	Matthias Heger
+P	Lisa Hellerstein
+P	David Helmbold
+P	Daniel Hennessy
+P	Haym Hirsh
+P	Jonathan Hodgson
+P	Robert C. Holte
+P	Jiarong Hong
+N	Chun-Nan Hsu
+P	Kazushi Ikeda
+P	Masayuki Inaba
+N	Drago Indjic
+P	Nitin Indurkhya
+P	Jeff Jackson
+P	Sanjay Jain
+P	Wolfgang Janko
+N	Klaus P. Jantke
+P	Nathalie Japkowicz
+P	George H. John
+P	Randolph Jones
+P	Michael I. Jordan
+P	Leslie Pack Kaelbling
+P	Bala Kalyanasundaram
+N	Thomas E. Kammeyer
+N	Grigoris Karakoulas
+P	Michael Kearns
+P	Neela Khan
+P	Roni Khardon
+P	Dennis F. Kibler
+P	Jorg-Uwe Kietz
+N	Efim Kinber
+N	Jyrki Kivinen
+N	Emanuel Knill
+N	Craig Knoblock
+P	Ron Kohavi
+P	Pascal Koiran
+P	Moshe Koppel
+P	Daniel Kortenkamp
+P	Matevz Kovacic
+N	Stefan Kramer
+P	Martinch Krikis
+P	Martin Kummer
+N	Eyal Kushilevitz
+N	Stephen Kwek
+P	Wai Lam
+P	Ken Lang
+N	Steffen Lange
+P	Pat Langley
+P	Mary Soon Lee
+P	Wee Sun Lee
+P	Moshe Leshno
+P	Long-Ji Lin
+N	Charles X. Ling
+P	Michael Littman
+P	David Loewenstern
+N	Phil Long
+P	Wolfgang Maass
+N	Bruce A. MacDonald
+P	Rich Maclin
+N	Sridhar Mahadevan
+N	J. Jeffrey Mahoney
+P	Yishay Mansour
+P	Mario Marchand
+N	Shaul Markovitch
+N	Oded Maron
+P	Maja Mataric
+P	David Mathias
+P	Toshiyasu Matsushima
+N	Stan Matwin
+N	Eddy Mayoraz
+N	R. Andrew McCallum
+N	L. Thorne McCarty
+N	Alexander M. Meystel
+P	Michael A. meystel
+N	Steven Minton
+P	Nina Mishra
+P	Tom M. Mitchell
+P	Dunja Mladenic
+P	David Montgomery
+N	Andrew W. Moore
+P	Johanne Morin
+P	Hiroshi Motoda
+N	Stephen Muggleton
+P	Patrick M. Murphy
+N	Sreerama K. Murthy
+P	Filippo Neri
+N	Craig Nevill-Manning
+N	Andrew Y. Ng
+P	Nikolay Nikolaev
+N	Steven W. Norton
+P	Joseph O'Sullivan
+P	Dan Oblinger
+P	Jong-Hoon Oh
+N	Arlindo Oliveira
+P	David W. Opitz
+P	Sandra Panizza
+P	Barak A. Pearlmutter
+N	Ed Pednault
+P	Jing Peng
+P	Fernando Pereira
+P	Aurora Perez
+P	Bernhard Pfahringer
+P	David Pierce
+N	Krishnan Pillaipakkamnatt
+P	Roberto Piola
+P	Leonard Pitt
+P	Lorien Y. Pratt
+N	Armand Prieditis
+P	Foster J. Provost
+N	J. R. Quinlan
+P	John Rachlin
+P	Vijay Raghavan
+N	R. Bharat Rao
+N	Priscilla Rasmussen
+P	Joel Ratsaby
+P	Michael Redmond
+P	Patricia J. Riddle
+P	Lance Riley
+P	Ronald L. Rivest
+P	Huw Roberts
+P	Dana Ron
+P	Robert S. Roos
+P	Justinian Rosca
+P	John R. Rose
+P	Dan Roth
+P	James S. Royer
+P	Ronitt Rubinfeld
+N	Stuart Russell
+P	Lorenza Saitta
+P	Yoshifumi Sakai
+P	William Sakas
+P	Marcos Salganicoff
+N	Steven Salzberg
+N	Claude Sammut
+P	Cullen Schaffer
+P	Robert Schapire
+P	Mark Schwabacher
+P	Michele Sebag
+P	Gary M. Selzer
+P	Sebastian Seung
+N	Arun Sharma
+P	Jude Shavlik
+P	Daniel L. Silver
+N	Glenn Silverstein
+P	Yoram Singer
+P	Mona Singh
+P	Satinder Pal Singh
+P	Kimmen Sjolander
+P	David B. Skalak
+P	Sean Slattery
+P	Robert Sloan
+P	Donna Slonim
+P	Carl H. Smith
+P	Sonya Snedecor
+P	Von-Wun Soo
+N	Thomas G. Spalthoff
+P	Mark Staley
+N	Frank Stephan
+P	Mandayam T. Suraj
+P	Richard S. Sutton
+P	Joe Suzuki
+N	Prasad Tadepalli
+P	Hiroshi Tanaka
+N	Irina Tchoumatchenko
+N	Brian Tester
+N	Chen K. Tham
+P	Tatsuo Unemi
+N	Lyle H. Ungar
+P	Paul Utgoff
+P	Karsten Verbeurgt
+P	Paul Vitanyi
+P	Xuemei Wang
+P	Manfred Warmuth
+P	Gary Weiss
+N	Sholom Weiss
+N	Thomas Wengerek
+N	Bradley L. Whitehall
+N	Alma Whitten
+P	Robert Williamson
+P	Janusz Wnek
+P	Kenji Yamanishi
+P	Takefumi Yamazaki
+P	Holly Yanco
+P	John M. Zelle
+N	Thomas Zeugmann
+P	Jean-Daniel Zucker
+P	Darko Zupanic
