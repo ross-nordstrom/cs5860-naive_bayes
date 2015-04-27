@@ -70,14 +70,14 @@ for a few train:test ratios are shown in table \ref{table:smsBasicResults}.
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=90mm]{img/sms_basic-precision.png}
-    \caption{Overall, spam-specific, and ham-specific precisions found at varying portions of the dataset used to train}
+    \caption{SMS Precision: Overall, spam-specific, and ham-specific precisions found at varying portions of the dataset used to train}
     \label{fig:spamBasicPrecision}
 \end{figure}
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=90mm]{img/sms_basic-accuracy.png}
-    \caption{Overall, spam-specific, and ham-specific accuracies found at varying portions of the dataset used to train}
+    \caption{SMS Accuracy: Overall, spam-specific, and ham-specific accuracies found at varying portions of the dataset used to train}
     \label{fig:smsBasicAccuracy}
 \end{figure}
 
@@ -118,14 +118,14 @@ simply be tokenizing on characters rather than words.
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=90mm]{img/badge_basic-precision.png}
-    \caption{Overall, P-specific, and N-specific precisions found at varying portions of the dataset used to train}
+    \caption{Badge Precision: Overall, P-specific, and N-specific precisions found at varying portions of the dataset used to train}
     \label{fig:spamBasicPrecision}
 \end{figure}
 
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=90mm]{img/badge_basic-accuracy.png}
-    \caption{Overall, P-specific, and N-specific accuracies found at varying portions of the dataset used to train}
+    \caption{Badge Accuracy: Overall, P-specific, and N-specific accuracies found at varying portions of the dataset used to train}
     \label{fig:smsBasicAccuracy}
 \end{figure}
 
@@ -139,7 +139,25 @@ classifier on the author's name. Additionally all postamble added by Project Gut
 Without applying any special tokenizing, the stringified naive bayes classifier was found to be about 6 MB (6,125,536 B)
 after training on 5 of 30 books simply from storing and tracking every word seen in the training set. Obviously the
 basic approach is not scalable yet, for the sake of completeness, results are shown here as was done for the SMS Spam
-Collection and the Badge Problem.
+Collection and the Badge Problem. In general, the classifier did much better with Dickens than Hardy. This likely
+stems from the fact that the Dickens novels used here were larger than the Hardy books and thus any given word is more
+likely to be a Dickens word. Again, the precision \ref{fig:novelBasicPrecision} and accuracy \ref{fig:novelBasicAccuracy}
+are shown for varying ratios. A more limited range of ratios was used because the dataset was only of size 30.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=90mm]{img/novels_basic-precision.png}
+    \caption{Novels Precision: Overall, Dickens-specific, and Hardy-specific precisions found at varying portions of the dataset used to train}
+    \label{fig:spamBasicPrecision}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=90mm]{img/novels_basic-accuracy.png}
+    \caption{Novels Accuracy: Overall, Dickens-specific, and Hardy-specific accuracies found at varying portions of the dataset used to train}
+    \label{fig:smsBasicAccuracy}
+\end{figure}
+
 
 \subsection{Extending the Classifier}
 \label{subsection:advancedResults}
