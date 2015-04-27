@@ -61,7 +61,7 @@ Badge, and Dickens-vs-Hardy data are discussed.
 
 \subsubsection{SMS Spam Collection}
 \label{subsection:smsBasic}
-The SMS Spam Collection dataset contains 5,574 data samples, of which 4,827 (86.6%) are not spam (``ham") and 747 (13.4%)
+The SMS Spam Collection dataset \cite{sms} contains 5,574 data samples, of which 4,827 (86.6%) are not spam (``ham") and 747 (13.4%)
 are spam (``spam"). The precision \ref{fig:smsBasicPrecision} and accuracy \ref{fig:smsBasicAccuracy} of the classifier
 are shown for varying ratios of the dataset used to train with 5 random distributions for each ratio. Recall and
 specificity are not shown because they were found to always be 100\% and 0\%, respectively. Specific numbers
@@ -102,6 +102,32 @@ for a few train:test ratios are shown in table \ref{table:smsBasicResults}.
     \label{table:smsBasicResults}
 \end{table}
 
+\subsubsection{Badge Problem}
+\label{subsection:badgesBasic}
+The Badge Problem dataset \cite{badge} contains 294 data samples, of which 210 (71.4%) are positive (P) and 84 (28.6%)
+are negative (N). The dataset contains a list of names, each of which has a class of P or N (originally ``+'' and ``-'',
+but it was converted for this project to avoid special characters) This is an interesting dataset because the original
+algorithm determining how to assign P and N is unknown. The original intent was to create a challenge for computer
+scientists to generically apply machine learning to discover the target function. The precision
+\ref{fig:badgeBasicPrecision} and accuracy \ref{fig:badgeBasicAccuracy} of the classifier are shown for varying ratios
+of the dataset used to train with 5 random distributions for each ratio. Recall and specificity are not shown because
+they were found to always be 100\% and 0\%, respectively. Since the basic approach simply looks at words, it did a
+poor job on this dataset. Improved results could be possible by evaluating gender and length of name, or perhaps
+simply be tokenizing on characters rather than words.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=90mm]{img/badge_basic-precision.png}
+    \caption{Overall, P-specific, and N-specific precisions found at varying portions of the dataset used to train}
+    \label{fig:spamBasicPrecision}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=90mm]{img/badge_basic-accuracy.png}
+    \caption{Overall, P-specific, and N-specific accuracies found at varying portions of the dataset used to train}
+    \label{fig:smsBasicAccuracy}
+\end{figure}
 
 \subsection{Extending the Classifier}
 \label{subsection:advancedResults}
