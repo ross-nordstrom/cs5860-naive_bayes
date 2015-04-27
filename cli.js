@@ -131,6 +131,48 @@ if (argv.help) {
         });
         var train = trainAndTest[0];
         var test = trainAndTest[1];
+
+        // Make sure we have all classes represented in the training data
+        var classes = _.uniq(_.pluck(books, 'class'));
+        if (_.size(classes) > _.size(train)) {
+            console.log("ERROR!  Ratio not high enough to train on every class! Would train on " + _.size(train) +
+            " points, but there are " + _.size(classes) + " classes");
+            process.exit(1);
+        }
+
+        // Swap for any classes missing from training set
+        var missingClasses = _.difference(classes, _.uniq(_.pluck(train, 'class')));
+        while (!_.isEmpty(missingClasses)) {
+            if (argv.verbose) console.log("Missing classes! ", missingClasses);
+            var classCount = _.countBy(train, _.property('class'));
+
+            var swapperCls = _.findKey(classCount, function (cnt) {
+                return cnt > 1;
+            });
+
+            var swapperIdx = _.findIndex(_.pluck(train, 'class'), function (cls) {
+                return cls === swapperCls;
+            });
+
+            var swappeeIdx = _.findIndex(_.pluck(test, 'class'), function (cls) {
+                return missingClasses.indexOf(cls) >= 0;
+            });
+
+            if (swappeeIdx < 0 || swapperIdx < 0) {
+                console.log("ERROR!  Unable to swap training/testing samples to ensure all classes are trained");
+                process.exit(1);
+            }
+            if (argv.verbose) console.log("Swap ", train[swapperIdx]);
+            if (argv.verbose) console.log(" with ", test[swappeeIdx]);
+
+            // Make the swap
+            var tmp = train[swapperIdx];
+            train[swapperIdx] = test[swappeeIdx];
+            test[swappeeIdx] = tmp;
+
+            missingClasses = _.difference(classes, _.uniq(_.pluck(train, 'class')));
+        }
+
         console.log(idx + ") Partitioned into " + _.size(train) + " training and " + _.size(test) + " testing datapoints");
 
         // Train on all the training points

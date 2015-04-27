@@ -136,7 +136,10 @@ was evaluated against the naive bayes classifier. Only slight alterations were m
 from the Gutenberg Project. First, all preamble preceeding ``Chapter 1" or similar was removed so as not to train the
 classifier on the author's name. Additionally all postamble added by Project Gutenberg was removed for the same reasons.
 
-Without applying any special tokenizing, the stringified naive bayes classifier was found to be 
+Without applying any special tokenizing, the stringified naive bayes classifier was found to be about 6 MB (6,125,536 B)
+after training on 5 of 30 books simply from storing and tracking every word seen in the training set. Obviously the
+basic approach is not scalable yet, for the sake of completeness, results are shown here as was done for the SMS Spam
+Collection and the Badge Problem.
 
 \subsection{Extending the Classifier}
 \label{subsection:advancedResults}
