@@ -129,9 +129,14 @@ simply be tokenizing on characters rather than words.
     \label{fig:smsBasicAccuracy}
 \end{figure}
 
-\subsubsection{Novels}
+\subsubsection{Dickens vs. Hardy Novels}
 \label{subsection:novelsBasic}
-TODO
+Finally, a data set of 15 Charles Dickens books \cite{gutenberg:dickens} and 15 Thomas Hardy books \cite{gutenberg:hardy}
+was evaluated against the naive bayes classifier. Only slight alterations were made to the original books downloaded
+from the Gutenberg Project. First, all preamble preceeding ``Chapter 1" or similar was removed so as not to train the
+classifier on the author's name. Additionally all postamble added by Project Gutenberg was removed for the same reasons.
+
+Without applying any special tokenizing, the stringified naive bayes classifier was found to be 
 
 \subsection{Extending the Classifier}
 \label{subsection:advancedResults}
