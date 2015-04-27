@@ -62,7 +62,43 @@ Badge, and Dickens-vs-Hardy data are discussed.
 \subsubsection{SMS Spam Collection}
 \label{subsection:smsBasic}
 The SMS Spam Collection dataset contains 5,574 data samples, of which 4,827 (86.6%) are not spam (``ham") and 747 (13.4%)
-are spam (``spam").
+are spam (``spam"). The precision \ref{fig:smsBasicPrecision} and accuracy \ref{fig:smsBasicAccuracy} of the classifier
+are shown for varying ratios of the dataset used to train with 5 random distributions for each ratio. Recall and
+specificity are not shown because they were found to always be 100\% and 0\%, respectively. Specific numbers
+for a few train:test ratios are shown in table \ref{table:smsBasicResults}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=90mm]{img/sms_basic-precision.png}
+    \caption{Overall, spam-specific, and ham-specific precisions found at varying portions of the dataset used to train}
+    \label{fig:spamBasicPrecision}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=90mm]{img/sms_basic-accuracy.png}
+    \caption{Overall, spam-specific, and ham-specific accuracies found at varying portions of the dataset used to train}
+    \label{fig:smsBasicAccuracy}
+\end{figure}
+
+\begin{table}
+    \begin{tabular}{rrrrrrrr}
+        \hline
+        \textbf{Train} &
+        \textbf{\begin{math}P_{All}\end{math}} & \textbf{\begin{math}P_{Ham}\end{math}} & \textbf{\begin{math}P_{Spam}\end{math}} &
+        \textbf{\begin{math}A_{All}\end{math}} & \textbf{\begin{math}A_{Ham}\end{math}} & \textbf{\begin{math}A_{Spam}\end{math}} &
+        \textbf{t} \\ [0.5ex]
+        \hline\hline
+        1\%  & 99.1 & 99.1 & 99.0 & 99.1 & 99.1 & 99.0 & 62s \\
+        5\%  & 99.7 & 99.8 & 99.4 & 99.7 & 99.8 & 99.4 & 58s \\
+        15\% & 99.9 & 99.9 & 99.6 & 99.9 & 99.9 & 99.6 & 64s \\
+        \hline
+    \end{tabular}
+    \caption{Mean \% precision (P) and accuracy (A) found over 1000 iterations at a number of train/test ratios,
+    and the time (t) to split and evaluate each}
+    \label{table:smsBasicResults}
+\end{table}
+
 
 \subsection{Extending the Classifier}
 \label{subsection:advancedResults}

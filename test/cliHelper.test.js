@@ -65,7 +65,7 @@ describe('CliHelper', function () {
             });
 
             expect(x).to.be.an(Array);
-            expect(x).to.have.length(1 + _.size(exampleResults));
+            expect(x).to.have.length(1 + _.size(exampleResults) + 2); // Columns, data, divider, mean
             expectedKeys.forEach(function (k) {
                 expect(x[0]).to.contain(k);
             });
@@ -80,7 +80,8 @@ describe('CliHelper', function () {
             });
 
             expect(x).to.be.an(Array);
-            expect(x).to.have.length(1 + _.size(exampleResults));
+
+            expect(x).to.have.length(1 + _.size(exampleResults) + 2); // Columns, data, divider, mean
             expectedKeys.forEach(function (k) {
                 expect(x[0]).to.contain(k);
             });

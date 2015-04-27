@@ -47,12 +47,14 @@ if (argv.help) {
 
 } else if (argv.inline) {
 
-    var myClassifier = new bayes();
-
+    var start = new Date();
     console.log("Train/Test on inline data from '" + argv.in + "', " + argv.number + " time(s), using " + argv.ratio + "% for Training");
 
     return async.times(argv.number, function (idx, timesCb) {
         return fs.readFile(argv.in, 'utf8', function (err, data) {
+
+            var myClassifier = new bayes();
+
             if (err) {
                 return timesCb(err);
             }
@@ -105,6 +107,10 @@ if (argv.help) {
         console.log(" ");
         console.log("Performance Results: ");
         console.log(cliHelper.normalizeResults(argv, allResults));
+
+        var end = new Date();
+        console.log(" ");
+        console.log("Finished in " + (end.valueOf() - start.valueOf()) + "ms");
         process.exit(0);
     });
 
