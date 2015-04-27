@@ -4,7 +4,8 @@ A Naive Bayes classifier was implemented in Node.js \cite{node}, as a simple mod
 and \texttt{classify} on text, as well as some debugging interfaces such as \texttt{dump} and \texttt{restore}. This
 core logic is exposed via a convenient CLI tool, which can be run locally from this project or downloaded from the
 public node package manager (NPM) \cite{rdn-naive-bayes}. This CLI tool simply wraps the core Naive Bayes Classifier
-with some scripting logic to process downloaded datasets of varying formats, described in \ref{subsection:datasets}.
+with some scripting logic to process downloaded datasets of varying formats, described in
+section \ref{subsection:datasets}.
 
 \subsection{Training the Classifier}
 \label{subsection:training}
@@ -39,7 +40,7 @@ are taken to normalize and slim the data before learning on it. In the case of N
 blobs, the normalization and slimming step is determined by how the text blob is tokenized. By default, the classifier
 implemented in this project simply splits the text by spaces, however the classifier can take an arbitrary tokenizer
 function. This allows consumers to do application-specific tokenizing, such as lemmatization, or bi/tri-gramming, and
-top-K word selection. Specific techniques attempted are described in \ref{subsection:advancedResults}.
+top-K word selection. Specific techniques attempted are described in section \ref{subsection:advancedResults}.
 
 \subsection{CLI Tool}
 \label{subsection:cliTool}
@@ -74,4 +75,4 @@ parameters on the classifier, evaluating arbitrary datasets, and calculating \& 
 
 As with the classifier, the CLI tool was developed in Node.js for rapid prototyping and ease of interfacing with the
 classifier. It parses user-specified parameters in order to evaluate the Naive Bayes Classifier on arbitrary datasets.
-The CLI parameters are described in \ref{table:cliParams}.
+The CLI parameters are described in table \ref{table:cliParams}.

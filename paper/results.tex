@@ -7,52 +7,63 @@ tokenizing approaches are described.
 \label{subsection:datasets}
 In addition to the required Dickens and Hardy books required for the assignment, some additional datasets
 were taken from the UCI Machine Learning Repository \cite{uci}. Specifically, classification datasets stored in an
-easy-to-use text format were selected. The datasets used are described in \ref{table:datasets}. For each dataset, I
-specify which ``type" it is, indicating the structure in which the data is stored. The dataset types are described in
-\ref{table:datasetTypes}.
-
+easy-to-use text format were selected. The datasets used are described in table \ref{table:datasets}. For each dataset,
+its ``type" is specified, indicating the structure in which the data is stored. The available dataset types are
+inline\footnotemark[1] and guten\footnotemark[2].
 
 \begin{table}
     \begin{tabular}{lll}
         \hline
         \textbf{Dataset} & \textbf{Source} & \textbf{Type} \\ [0.5ex]
         \hline\hline
-        SMS & UCI - SMS Spam Collection & inline \\
+        SMS & UCI - SMS Spam Collection & inline\footnotemark[1] \\
         Badges & UCI - Badges & inline \\
-        Main & Gutenberg - Dickens \& Hardy & guten \\
+        Main & Gutenberg - Dickens \& Hardy & guten\footnotemark[2] \\
         \hline
     \end{tabular}
     \caption{Datasets used for this paper}
     \label{table:datasets}
 \end{table}
 
+\footnotetext[1]{Dataset is stored as a single file in which each line represents a training point. The first word in
+each line is the class/category, while the rest of the line is a list of words used as the training "text blob."}
+\footnotetext[2]{Dataset is stored as a list of directories representing classes/categories (e.g. "dickens", "hardy").
+Each file within the class directories represent a training point. These files are actually books, but are abstractly
+considered to be "text blobs," just like the inline dataset type.}
+
+\subsection{Performance Measurements}
+\label{subsection:performanceMeasurements}
+Evaluations of the classifier are recorded in terms of ``True Positive" (TP), ``False Negative" (FN), ``False Positive"
+(FP), \& ``True Negative" (TN), indicating what was predicted verse what the data's actual class. Then, the results are
+presented in terms of some commonly used formulas: ``Precision", ``Recall", ``Specificity", and ``Accuracy"
+\cite{measures}. A description of these formulas is shown in table \ref{table:measures}.
+
 \begin{table}
     \begin{tabular}{lll}
         \hline
-        \textbf{Type} & \textbf{Description} \\ [0.5ex]
+        \textbf{Measure} & \textbf{Formula} & \textbf{Meaning} \\ [0.5ex]
         \hline\hline
-        inline & Dataset is stored as a single file in which each line \\
-               & represents a training point. The first word in each \\
-               & line is the class/category, while the rest of the \\
-               & line is a list of words used as the training \\
-               & ``text blob." \\
-        guten  & Dataset is stored as a list of directories representing \\
-               & classes/categories (e.g. ``dickens", ``hardy"). Each file \\
-               & within the class directories \\
-               & represent a training point. These files \\
-               & are actually books, but are abstractly \\
-               & considered to be ``text blobs," \\
-               & just like the **inline** dataset type. \\
+        Precision	& TP / (TP + FP) & \% of correct +'s \\
+        Accuracy	& (TP + TN) / (total) & \% correct \\
+        Recall 	    & TP / (TP + FN) & \% of +'s predicted as + \\
+        Specificity	& TN / (TN + FP) & \% of -'s predicted as + \\
         \hline
     \end{tabular}
-    \caption{Types of datasets used}
-    \label{table:datasetTypes}
+    \caption{The measurement terms used in evaluations for this project, with their formulas and intuitive meanings}
+    \label{table:measures}
 \end{table}
 
+\subsection{Evaluation of the Basic Classifier}
+\label{subsection:basicResults}
+Here, the basic classifier is evaluated. The basic classifier simply tokenizes text by splitting on spaces. It does
+nothing to filter or alter the tokens before training and classifying on them. Here, the results of evaluating SMS,
+Badge, and Dickens-vs-Hardy data are discussed.
 
+\subsubsection{SMS Spam Collection}
+\label{subsection:smsBasic}
+The SMS Spam Collection dataset contains 5,574 data samples, of which 4,827 (86.6%) are not spam (``ham") and 747 (13.4%)
+are spam (``spam").
 
 \subsection{Extending the Classifier}
 \label{subsection:advancedResults}
 TODO
-
-
